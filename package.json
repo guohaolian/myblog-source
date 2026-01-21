@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "deploy:all": "git status --porcelain && git add . && git commit -m \"update blog\" || echo 'No changes'; git push; hexo d",
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
