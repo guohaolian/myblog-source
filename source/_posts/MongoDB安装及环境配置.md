@@ -61,9 +61,7 @@ tags:
 
 同样，也可以通过命令查看 MongoDB 服务的状态，开启或停止 MongoDB 服务。命令如下：
 
-`
-
-```
+```bash
 #查看MongoDB服务的状态
 sc query MongoDB
 #停止MongoDB服务
@@ -71,8 +69,6 @@ net stop MongoDB
 #开启MongoDB服务
 net start MongoDB
 ```
-
-`
 
 执行结果如下图所示：
 
