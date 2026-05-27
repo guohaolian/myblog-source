@@ -20,23 +20,56 @@ date: 2024-01-17 12:55:28
 
 # 专业技能
 
-熟练掌握 HTML5、CSS3 / Tailwind CSS 及现代 JavaScript。熟练应用 TypeScript 进行接口类型定义及泛型编程，具备高保真还原设计稿及复杂交互开发能力。
+精通前端核心技术: HTML、CSS、JavaScript、熟练使用ES6+、TypeScript，具备扎实的前端工程化与代码规范能力。
 
-熟练掌握 Vue3 (Composition API) / Vue2 及全家桶 (Pinia, Vue Router)。深入理解其响应式系统及虚拟 DOM Diff算法底层机制。了解 React 框架基础。
+精通Vue技术栈：vue-cli、vue-router、Pinia,深入理解Vue源码，可独立开发大型项目，支持框架扩展、定制与性能优化。
 
-熟悉大语言模型（LLM）与AI前端开发： 掌握 Prompt Engineering（提示词工程），擅长结合系统预设约束 LLM输出复杂结构化（JSON）数据；了解 RAG（检索增强生成）管线，熟悉启发式文本 Chunking 与意图识别边缘召回策略。
+前端工程化：熟练使用webpack、vite构建工具，掌握打包优化、按需加载、环境配置、模块化开发。
 
-深入理解 Server-Sent Events 协议原理。熟练使用原生 Fetch API 结合 ReadableStream 和 TextDecoder 解决大模型推流时常见的网络包拆帧、粘包合并及中文截断乱码问题。
+全栈开发：基于Express搭建服务端，可独立完成接口开发、中间件编写、服务部署，并且使用Python进行服务开发。熟悉MySQL、PostgreSQL，掌握数据库设计和SQL编写。
 
-精通基于 Promise 的异步编程模型（Axios / Fetch）。深入理解 HTTP 1.0/2.0 及 HTTPS 加密机制；熟悉 TCP/IP协议栈原理；熟练处理跨域问题 (CORS / 代理转发)。
+跨平台开发：掌握Uni-app开发H5、小程序。
 
-熟练掌握 Vite / Webpack 工具链构建与配置。熟练运用 Tree Shaking、按需加载、虚拟列表等前端性能优化手段，注重首屏白屏时间及长列表渲染优化。
+AI能力：熟练掌握LLM、Agent应用层研发，熟悉RAG、MCP、Skills等原理及工程落地；熟悉 Skill 开发 SOP，有落地个人使用Skill；擅长借助LangChain、LangGraph等脚手架搭 建Agent；熟悉短期记忆、长期记忆、上下文工程设计及常见问题解决方案；擅长借助Cursor、Codex、GitHub Copliot 等各类Agent工具提效。
 
-熟悉 ECharts 等前端可视化方案，具备复杂动态数据图表大屏项目开发经验。熟练使用 Git 进行分支协作，熟悉ESLint、Prettier 代码规范工具。
+# 实习经历
 
-熟悉UniApp。
+## 杭州亿格云科技有限公司
+
+### 前端开发
+
+2025/08 - 2025/11 
+
+工作概述：参与内部运维平台和外部SASE控制台上网管控模块开发，交付3个需求，5个工单。
+
+针对100+配置项的维护难题，重构为JSON Schema驱动渲染架构，将业务规则从UI剥离，实现新策略配置0代码修改；解决深层嵌套组件的渲染卡顿，实现基于childrenPolicy的递归渲染引擎，配合 v-memo / 函数式组件优化更新粒度，将交互帧率稳定在60fps。
+
+设计全局TaskCenter组件接管策略变更（上传/diff/回滚）等耗时任务，采用Teleport实现可拖拽的悬浮胶囊UI，解决传统模态框遮挡运维界面的问题；结合Pinia + IndexedDB建立可靠的任务状态同步机制，通过持久化插件确保页面刷新、路由切换时任务进度不丢失。
+
+针对万级节点组织架构树的渲染卡顿问题，采用虚拟滚动（vue-virtual-scroller）+ 懒加载组合方案突破物理瓶颈，实现海量数据下的秒级响应；针对高频数据请求，设计Map增量缓存+微批处理机制，合并流式聚合请求，有效拦截70%的冗余调用。
+
+针对存量代码人工迁移耗时痛点，开发基于Babel AST的自动化扫描工具，设计三层过滤架构（AST上下文+内容正则+注释标记）精准识别中文文案；引入Recast实现源码级无损替换，自动处理模板字符串变量提取，国际化覆盖率从90%→99%。
 
 # 项目经历
+## WorkMind AI  智能办公 Agent 平台
+
+### 全栈开发
+
+2026/03 - 至今
+
+https://github.com/guohaolian/workmind7 
+
+项目描述：WorkMind AI 是一个智能办公 Agent 平台，专门为企业日常工作场景设计，包含智能对话助手，知识库问答，任务 Agent等模块。使用技术栈为Vue3 + Node.js +LangChain.js + LangGraph + Chroma + Docker。
+
+核心职责与技术亮点：1. 流式输出架构：基于 SSE 实现逐 Token 推送，前端用 ReadableStream + 自定义fetchStream 工具解析事件流；设计精确缓存（MD5 哈希 + TTL），缓存命中后模拟流式输出保持体验一致，API 成本下降约 35%。
+
+2.RAG 知识库：RecursiveCharacterTextSplitter 按语义分界符递归分片（chunkSize=500, overlap=50 防止语义截断），余弦相似度阈值 0.3 过滤低相关文档，System Prompt 约束模型不超出文档范围回答，避免幻觉。
+
+3.LangGraph 双模式：Agent 模式用 StateGraph 实现 ReAct 循环，streamEvents 拦截 on_tool_start/on_tool_end事件推送步骤状态；工作流模式用 interruptBefore + MemorySaver 实现 Human-in-Loop，graph.getState 判断state.next 是否为空区分暂停和完成。
+
+4.ERP Multi Agent：Zod Schema + withStructuredOutput 将口语化描述解析为结构化表单；多 Agent 共享全局对话历史，根据申请金额/天数动态规划审批角色链，任一角色驳回即终止。
+
+5.成本监控：BaseCallbackHandler 回调追踪每次调用的 Token 用量，实时聚合今日费用/P50-P99 延迟/功能分布，支持预算预警。
 
 ## 低代码可视化搭建平台
 
